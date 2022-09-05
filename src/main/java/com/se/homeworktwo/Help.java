@@ -1,4 +1,4 @@
-package com.se.homeworktwo;
+package main.java.com.se.homeworktwo;
 
 public class Help {
     String commandName;

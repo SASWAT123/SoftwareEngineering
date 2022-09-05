@@ -1,4 +1,4 @@
-package com.se.homeworktwo;
+package main.java.com.se.homeworktwo;
 
 import java.util.ArrayList;
 import java.util.List;
