@@ -32,3 +32,6 @@ bin/
 .DS_Store
 
 *.class
+
+### Directories ###
+target/
