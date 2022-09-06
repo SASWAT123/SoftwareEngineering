@@ -10,15 +10,18 @@ public class Sym
     String name;
     Map<String, Integer> _has;
 
-    public Sym(int col, String name) {
+    public Sym (int col, String name) {
         this.n = 0;
         this._has.clear();
         this.name = name;
         this.at = col;
     }
 
-    void add(String v) {
-        if (_has.containsKey(v)) {
+    void add (String v) {
+        if (v == null || v.isEmpty()) {
+            return;
+        }
+        else if (_has.containsKey(v)) {
             _has.put(v, _has.get(v) + 1);
         } else {
             _has.put(v, 1);
@@ -30,7 +33,7 @@ public class Sym
         int most = -1;
         int v;
         String mode = "";
-        for(String key : _has.keySet()) {
+        for (String key : _has.keySet()) {
             v = _has.get(key);
             if (v > most) {
                 most = v;
@@ -46,7 +49,7 @@ public class Sym
 
     double div(){
         double e = 0;
-        for(String key : _has.keySet()) {
+        for (String key : _has.keySet()) {
            e -= unit_entropy(_has.get(key)/n);
         }
         return e;
