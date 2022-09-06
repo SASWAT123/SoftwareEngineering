@@ -29,36 +29,33 @@ public class App {
             runMenu = scanner.nextLine();
 
             //Check the condition entered by the user and trigger respective functions
-            if(runMenu.equalsIgnoreCase(help.getCommandName())){
+            if(runMenu.equalsIgnoreCase("n")){
+                return;
+            }else if(runMenu.equalsIgnoreCase(help.getCommandName())){
                 System.out.println(help);
-                for (Help command:helpCommands) {
+                for (Help command: helpCommands) {
                     System.out.println(command.toString());
                 }
-            }else if(runMenu.equalsIgnoreCase(csvData.getCommandName())){
+            }else if(runMenu.equalsIgnoreCase(String.format("help %s", csvData.getCommandName()))){
                 System.out.println(csvData);
-            }else if(runMenu.equalsIgnoreCase(editHelp.commandName)){
+            }else if(runMenu.equalsIgnoreCase(String.format("help %s", editHelp.getCommandName()))){
                 System.out.println(editHelp);
-            }else if(runMenu.equalsIgnoreCase(("n"))){
-                continue;
-            } else if(runMenu.equalsIgnoreCase(editHelp.getCommandName().toLowerCase() + " " + csvData.getCommandName().toLowerCase())
-                    || runMenu.equalsIgnoreCase(editHelp.getCommandName().toLowerCase() + " " + editHelp.getCommandName().toLowerCase())){
+            }else if(runMenu.equalsIgnoreCase(String.format("help %s %s", editHelp.getCommandName(), csvData.getCommandName()))
+                    || runMenu.equalsIgnoreCase(String.format("help %s %s", editHelp.getCommandName(), editHelp.getCommandName()))){
                 //check helpCommand update functionality
                 List<String> updateHelpFlag = Arrays.asList(runMenu.split(" "));
 
                 System.out.println("Kindly enter the new help flag name:");
-                Scanner helpCommandFlagName = new Scanner(System.in);
-                String commandName = helpCommandFlagName.nextLine();
+                String commandName = scanner.nextLine();
                 if(updateHelpFlag.get(1).equalsIgnoreCase(csvData.getCommandName())){
                     csvData.setCommandName(commandName);
-                    updateHelpFlag.set(1, commandName);
                 }else{
                     editHelp.setCommandName(commandName);
-                    updateHelpFlag.set(1, commandName);
                 }
+                updateHelpFlag.set(1, commandName);
 
                 System.out.println("Kindly enter the new help flag description:");
-                Scanner helpCommandFlagDescription = new Scanner(System.in);
-                String commandDescription = helpCommandFlagName.nextLine();
+                String commandDescription = scanner.nextLine();
                 if(updateHelpFlag.get(1).equalsIgnoreCase(csvData.getCommandName())){
                     csvData.setCommandDescription(commandDescription);
                 }else{
