@@ -23,11 +23,13 @@ public class Sym
         } else {
             _has.put(v, 1);
         }
+        n++;
     }
 
-    String mid(int col, int most, String mode){
-        most = -1;
+    String mid() {
+        int most = -1;
         int v;
+        String mode = "";
         for(String key : _has.keySet()) {
             v = _has.get(key);
             if (v > most) {
