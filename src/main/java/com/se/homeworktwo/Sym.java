@@ -1,6 +1,11 @@
 package com.se.homeworktwo;
 
+import java.util.Map;
+
 public class Sym
 {
-    // Add implementation for Sim
+    int n;
+    int at;
+    String name;
+    Map<String, Integer> _has;
 }
