@@ -1,5 +1,6 @@
 package com.se.homeworktwo;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.lang.Math;
 
@@ -16,7 +17,7 @@ public class Sym
     }
     public Sym (int col, String name) {
         this.n = 0;
-        this._has.clear();
+        this._has = new HashMap<>();
         this.name = name;
         this.at = col;
     }
