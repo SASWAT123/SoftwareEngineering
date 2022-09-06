@@ -1,4 +1,4 @@
-package main.java.com.se.homeworktwo;
+package com.se.homeworktwo;
 
 public class Help {
     String commandName;
@@ -27,7 +27,7 @@ public class Help {
 
     @Override
     public String toString() {
-        return  "commandName='" + commandName + '\'' +
-                ", commandDescription='" + commandDescription;
+        return "commandName='" + commandName + '\'' +
+                ", commandDescription='" + commandDescription + '\'';
     }
 }
