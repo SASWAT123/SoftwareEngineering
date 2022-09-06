@@ -1,6 +1,7 @@
 package com.se.homeworktwo;
 
 import java.util.Map;
+import java.lang.Math;
 
 public class Sym
 {
@@ -35,5 +36,17 @@ public class Sym
             }
         }
         return mode;
+    }
+
+    double unit_entropy(double unit) {
+        return unit*Math.log(unit)/Math.log(2);
+    }
+
+    double div(){
+        double e = 0;
+        for(String key : _has.keySet()) {
+           e -= unit_entropy(_has.get(key)/n);
+        }
+        return e;
     }
 }
