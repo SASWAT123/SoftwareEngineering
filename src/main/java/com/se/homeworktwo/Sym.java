@@ -23,4 +23,17 @@ public class Sym
             _has.put(v, 1);
         }
     }
+
+    String mid(int col, int most, String mode){
+        most = -1;
+        int v;
+        for(String key : _has.keySet()) {
+            v = _has.get(key);
+            if (v > most) {
+                most = v;
+                mode = key;
+            }
+        }
+        return mode;
+    }
 }
