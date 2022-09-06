@@ -55,7 +55,8 @@ public class Sym
     double div(){
         double e = 0;
         for (String key : _has.keySet()) {
-           e -= unit_entropy(_has.get(key)/n);
+           double freq = _has.get(key);
+           e -= unit_entropy(freq/n);
         }
         return e;
     }
