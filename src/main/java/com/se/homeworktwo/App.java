@@ -1,4 +1,4 @@
-package main.java.com.se.homeworktwo;
+package com.se.homeworktwo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +43,7 @@ public class App {
                 System.out.println("Invalid choice, kindly use the help menu");
             }
         }
+        scanner.close();
 
     }
 }
