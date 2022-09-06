@@ -1,12 +1,18 @@
 package com.se.homeworktwo;
 
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         System.out.println("Welcome to Homework 2");
         Scanner scanner = new Scanner(System.in);
 
@@ -61,11 +67,27 @@ public class App {
                 }else{
                     editHelp.setCommandDescription(commandDescription);
                 }
-            } else{     //print any other invalid choice
+            // TODO - edit this to parse the path for csv from commandline so the user can add any csv file from system
+            }else if(runMenu.equalsIgnoreCase(csvData.getCommandName() + " " + "data/testFile.csv")){
+                try {
+                    readCSV("data/testFile.csv");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (CsvException e) {
+                    throw new RuntimeException(e);
+                }
+            }else{     //print any other invalid choice
                 System.out.println("Invalid choice, kindly use the help menu");
             }
         }
         scanner.close();
 
+    }
+
+    private static void readCSV(String filePath) throws IOException, CsvException {
+        try (CSVReader reader = new CSVReader(new FileReader(filePath))) {
+            List<String[]> r = reader.readAll();
+            r.forEach(x -> System.out.println(Arrays.toString(x)));
+        }
     }
 }
