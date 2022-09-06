@@ -27,7 +27,7 @@ public class Help {
 
     @Override
     public String toString() {
-        return  "commandName='" + commandName + '\'' +
-                ", commandDescription='" + commandDescription;
+        return "commandName='" + commandName + '\'' +
+                ", commandDescription='" + commandDescription + '\'';
     }
 }
