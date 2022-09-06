@@ -10,6 +10,10 @@ public class Sym
     String name;
     Map<String, Integer> _has;
 
+    public Sym()
+    {
+        this(0,"");
+    }
     public Sym (int col, String name) {
         this.n = 0;
         this._has.clear();
