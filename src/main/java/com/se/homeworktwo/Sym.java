@@ -15,4 +15,12 @@ public class Sym
         this.name = name;
         this.at = col;
     }
+
+    void add(String v) {
+        if (_has.containsKey(v)) {
+            _has.put(v, _has.get(v) + 1);
+        } else {
+            _has.put(v, 1);
+        }
+    }
 }
