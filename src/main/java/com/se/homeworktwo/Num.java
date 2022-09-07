@@ -8,6 +8,9 @@ public class Num {
     int at;
     String name;
     Map<String, Integer> _has;
+    double lo;
+    double hi;
+    boolean isSorted;
 
     public Num()
     {
@@ -18,6 +21,9 @@ public class Num {
         this._has = new HashMap<>();
         this.name = name;
         this.at = col;
+        lo=Double.POSITIVE_INFINITY;
+        hi=Double.NEGATIVE_INFINITY;
+        isSorted=true;
     }
 
     
