@@ -21,4 +21,17 @@ public class Eg {
         assertEquals("a", mode);
         assertTrue(1.37<= entropy && entropy<=1.38);        
     }
+
+    public void numTest()
+    {
+        Num num = new Num();
+        for(int i =1; i<= 100; i++)
+        {
+            num.add(i);
+        }
+        double mid = num.mid();
+        double div = num.div();
+        assertTrue(50<= mid && mid<=52);  
+        assertTrue(30.5< div && div<32);        
+    }
 }
