@@ -1,7 +1,6 @@
 package com.se.homeworktwo;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.lang.Math;
 
 public class Sym
