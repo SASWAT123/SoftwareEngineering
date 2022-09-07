@@ -27,7 +27,8 @@ public class Eg {
         Num num = new Num();
         for(int i =1; i<= 100; i++)
         {
-            num.add(i);
+            //Check logic for pos 
+            num.add(i,0);
         }
         double mid = num.mid();
         double div = num.div();
