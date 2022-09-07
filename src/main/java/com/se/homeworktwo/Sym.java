@@ -1,6 +1,6 @@
 package com.se.homeworktwo;
 
-import java.util.Map;
+import java.util.*;
 import java.lang.Math;
 
 public class Sym
@@ -10,9 +10,13 @@ public class Sym
     String name;
     Map<String, Integer> _has;
 
+    public Sym()
+    {
+        this(0,"");
+    }
     public Sym (int col, String name) {
         this.n = 0;
-        this._has.clear();
+        this._has = new HashMap<>();
         this.name = name;
         this.at = col;
     }
@@ -50,7 +54,8 @@ public class Sym
     double div(){
         double e = 0;
         for (String key : _has.keySet()) {
-           e -= unit_entropy(_has.get(key)/n);
+           double freq = _has.get(key);
+           e -= unit_entropy(freq/n);
         }
         return e;
     }
