@@ -1,8 +1,11 @@
-package com.se.homeworktwo;
+package test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import com.se.homeworktwo.Num;
+import com.se.homeworktwo.Sym;
+import com.se.homeworktwo.Util;
 import org.junit.Test;
 
 public class Eg {

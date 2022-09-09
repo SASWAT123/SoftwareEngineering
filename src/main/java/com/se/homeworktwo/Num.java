@@ -10,7 +10,7 @@ public class Num {
     int the_nums = 32;
     int at;
     String name;
-    ArrayList<Integer> _has;
+    public ArrayList<Integer> _has;
     double lo;
     double hi;
     boolean isSorted;
@@ -31,7 +31,7 @@ public class Num {
         this.w = name.contains("-$") ? -1 : 1;
     }
 
-    ArrayList<Integer> nums() {
+    public ArrayList<Integer> nums() {
         if (!isSorted) {
             Collections.sort(_has);
             isSorted = true;
@@ -39,7 +39,7 @@ public class Num {
         return _has;
     }
 
-    void add(Integer v) {
+    public void add(Integer v) {
         int pos = 0;
         if(v != null){
             this.n = this.n + 1;
@@ -58,17 +58,17 @@ public class Num {
         }
     }
 
-    double div() {
+    public double div() {
         ArrayList<Integer> a = nums();
         return (per(a, 0.9) - per(a,0.1))/ 2.56;
     }
 
-    double mid() {
+    public double mid() {
         ArrayList<Integer> a = nums();
         return per(a,0.5);
     }
 
-    double per(ArrayList<Integer> t, double p) {
+    public double per(ArrayList<Integer> t, double p) {
         int pos;
         if (p!=0)
         pos = (int) Math.floor((p * t.size()) + 0.5);
