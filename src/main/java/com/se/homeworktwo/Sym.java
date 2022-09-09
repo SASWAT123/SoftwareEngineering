@@ -21,7 +21,7 @@ public class Sym
         this.at = col;
     }
 
-    void add (String v) {
+    public void add (String v) {
         if (v == null || v.isEmpty()) {
             return;
         }
@@ -33,7 +33,7 @@ public class Sym
         n++;
     }
 
-    String mid() {
+    public String mid() {
         int most = -1;
         int v;
         String mode = "";
@@ -47,11 +47,11 @@ public class Sym
         return mode;
     }
 
-    double unit_entropy(double unit) {
+    public double unit_entropy(double unit) {
         return unit*Math.log(unit)/Math.log(2);
     }
 
-    double div(){
+    public double div(){
         double e = 0;
         for (String key : _has.keySet()) {
            double freq = _has.get(key);
