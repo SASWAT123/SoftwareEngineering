@@ -1,7 +1,6 @@
 package com.se.homeworktwo;
-import java.util.*;
 
-import javax.lang.model.util.ElementScanner14;
+import java.util.*;
 
 public class Cols {
 
@@ -13,14 +12,19 @@ public class Cols {
 
     public Cols (Map<Integer, String> names) {
         this.names=names;
-        this.all = new ArrayList<String>();
-        this.x = new ArrayList<String>();
-        this.y = new ArrayList<String>();
+        all = new ArrayList<String>();
+        x = new ArrayList<String>();
+        y = new ArrayList<String>();
         klass=null;
         for (int c : this.names.keySet()) 
         {
             String s = this.names.get(c);
-            //String col;
+            String col;
+            //Check logic for local col
+            if(Character.isUpperCase(s.charAt(0)))
+                col="Num";
+            else
+                col="Sym";
             all.add(s);
             if (!s.endsWith(":"))
             {
@@ -28,6 +32,8 @@ public class Cols {
                     y.add(s);
                 else
                     x.add(s);
+                if(s.endsWith("!"))
+                    klass=col;
                 
             }
 
