@@ -6,10 +6,7 @@ import com.opencsv.exceptions.CsvException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class App {
     public static void main(String[] args) throws FileNotFoundException {

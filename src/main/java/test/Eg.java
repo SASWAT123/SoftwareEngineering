@@ -3,10 +3,14 @@ package test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import com.se.homeworktwo.Cols;
 import com.se.homeworktwo.Num;
 import com.se.homeworktwo.Sym;
 import com.se.homeworktwo.Util;
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.*;
 
 public class Eg {
 
@@ -58,5 +62,20 @@ public class Eg {
         }
 
         assertEquals(num.nums().size(), num._has.size());
+    }
+
+    @Test
+    public void checkDependentIndependentCols() {
+        String[] arr = new String[]{"Clndrs", "Volume", "Hp:", "Lbs-", "Acc+", "Model", "origin", "Mpg+"};
+        Map<Integer, String> colNamesMap = new LinkedHashMap<>();
+        for(int i=0;i<arr.length;i++){
+            colNamesMap.put(i, arr[i]);
+        }
+        Cols cols = new Cols(colNamesMap);
+
+        List<String> independentCols = Arrays.asList("Clndrs", "Volume", "Model", "origin");
+        List<String> dependentCols = Arrays.asList("Lbs-", "Acc+", "Mpg+");
+        Assert.assertEquals(cols.x, independentCols);
+        Assert.assertEquals(cols.y, dependentCols);
     }
 }

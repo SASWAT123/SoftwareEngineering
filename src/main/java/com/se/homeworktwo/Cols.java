@@ -15,12 +15,12 @@ public class Cols {
         all = new ArrayList<>();
         x = new ArrayList<>();
         y = new ArrayList<>();
-        klass=null;
-        for (Map.Entry<Integer, String> e: this.names.entrySet())
-        {
+        klass = null;
+
+        for (Map.Entry<Integer, String> e: this.names.entrySet()) {
             String s = e.getValue();
             String col;
-            //Check logic for local col
+
             if(Character.isUpperCase(s.charAt(0))){
                 col="Num";
             }else{
@@ -41,7 +41,14 @@ public class Cols {
                     klass=col;
                 }
             }
+        }
+    }
 
-        }    
-}
+    @Override
+    public String toString() {
+        return "Cols{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }
