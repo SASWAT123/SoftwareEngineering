@@ -84,5 +84,15 @@ public class Eg {
         for(int i=0;i<=10;i++){
             Util.oo(Arrays.toString(csvData.get(i)));
         }
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    public void data() throws IOException, CsvException {
+        Data d = new Data("data/testFile.csv");
+        for(String s: d.cols.y){
+            Util.oo(s);
+        }
+        Assert.assertTrue(true);
     }
 }
