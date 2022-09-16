@@ -5,9 +5,9 @@ import java.util.*;
 public class Cols {
 
     Map<Integer, String> names;
-    public ArrayList<String> all;
-    public ArrayList<String> x;
-    public ArrayList<String> y;
+    public List<String> all;
+    public List<String> x;
+    public List<String> y;
     String klass;
 
     public Cols (Map<Integer, String> names) {
