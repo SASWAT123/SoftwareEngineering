@@ -84,7 +84,7 @@ public class App {
 
     }
 
-    private static void readCSV(String filePath) throws IOException, CsvException {
+     public static void readCSV(String filePath) throws IOException, CsvException {
         try (CSVReader reader = new CSVReader(new FileReader(filePath))) {
             List<String[]> r = reader.readAll();
             r.forEach(x -> System.out.println(Arrays.toString(x)));
