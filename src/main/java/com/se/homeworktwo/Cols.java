@@ -12,29 +12,34 @@ public class Cols {
 
     public Cols (Map<Integer, String> names) {
         this.names=names;
-        all = new ArrayList<String>();
-        x = new ArrayList<String>();
-        y = new ArrayList<String>();
+        all = new ArrayList<>();
+        x = new ArrayList<>();
+        y = new ArrayList<>();
         klass=null;
-        for (int c : this.names.keySet()) 
+        for (Map.Entry<Integer, String> e: this.names.entrySet())
         {
-            String s = this.names.get(c);
+            String s = e.getValue();
             String col;
             //Check logic for local col
-            if(Character.isUpperCase(s.charAt(0)))
+            if(Character.isUpperCase(s.charAt(0))){
                 col="Num";
-            else
+            }else{
                 col="Sym";
+            }
+
             all.add(s);
-            if (!s.endsWith(":"))
-            {
-                if (s.endsWith("+") || s.endsWith("-"))
+
+            if (!s.endsWith(":")) {
+
+                if (s.endsWith("+") || s.endsWith("-")){
                     y.add(s);
-                else
+                }else{
                     x.add(s);
-                if(s.endsWith("!"))
+                }
+
+                if(s.endsWith("!")){
                     klass=col;
-                
+                }
             }
 
         }    
