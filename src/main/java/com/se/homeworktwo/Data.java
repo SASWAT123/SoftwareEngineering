@@ -14,7 +14,7 @@ public class Data {
         cols = null;
         rows = new ArrayList<>();
         if(src instanceof String){
-            App.readCSV((String) src);
+            App.csv((String) src);
         }
         else if(src instanceof Map){
             for(Object a: ((Map) src).values()){

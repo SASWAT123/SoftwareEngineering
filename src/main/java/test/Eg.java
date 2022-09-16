@@ -3,13 +3,12 @@ package test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import com.se.homeworktwo.Cols;
-import com.se.homeworktwo.Num;
-import com.se.homeworktwo.Sym;
-import com.se.homeworktwo.Util;
+import com.opencsv.exceptions.CsvException;
+import com.se.homeworktwo.*;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.*;
 
 public class Eg {
@@ -77,5 +76,13 @@ public class Eg {
         List<String> dependentCols = Arrays.asList("Lbs-", "Acc+", "Mpg+");
         Assert.assertEquals(cols.x, independentCols);
         Assert.assertEquals(cols.y, dependentCols);
+    }
+
+    @Test
+    public void csv() throws IOException, CsvException {
+        List<String[]> csvData = App.csv("data/testFile.csv");
+        for(int i=0;i<=10;i++){
+            Util.oo(Arrays.toString(csvData.get(i)));
+        }
     }
 }

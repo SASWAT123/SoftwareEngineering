@@ -67,7 +67,7 @@ public class App {
             // TODO - edit this to parse the path for csv from commandline so the user can add any csv file from system
             }else if(runMenu.equalsIgnoreCase(csvData.getCommandName() + " " + "data/testFile.csv")){
                 try {
-                    readCSV("data/testFile.csv");
+                    csv("data/testFile.csv");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 } catch (CsvException e) {
@@ -81,10 +81,12 @@ public class App {
 
     }
 
-     public static void readCSV(String filePath) throws IOException, CsvException {
+     public static List<String[]> csv(String filePath) throws IOException, CsvException {
+         List<String[]> r;
         try (CSVReader reader = new CSVReader(new FileReader(filePath))) {
-            List<String[]> r = reader.readAll();
-            r.forEach(x -> System.out.println(Arrays.toString(x)));
+            r = reader.readAll();
         }
+        return r;
     }
 }
+
