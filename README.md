@@ -10,3 +10,5 @@ To run the testcases, go to the test folder located inside src/main/java/ and ru
 
 [![Build Status](https://github.com/SASWAT123/SoftwareEngineering/actions/workflows/maven.yml/badge.svg)](https://github.com/SASWAT123/SoftwareEngineering/actions/workflows/maven.yml)
 
+[![SonarQube Analysis](https://github.com/SASWAT123/SoftwareEngineering/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/SASWAT123/SoftwareEngineering/actions/workflows/sonarcloud.yml)
+
