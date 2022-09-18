@@ -95,4 +95,13 @@ public class Eg {
         }
         Assert.assertTrue(true);
     }
+
+    @Test
+    public void stats() throws IOException, CsvException {
+        Data d = new Data("data/testFile.csv");
+        Assert.assertTrue(true);
+    }
+
+        
 }
+
