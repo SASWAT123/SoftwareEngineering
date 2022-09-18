@@ -5,14 +5,14 @@ import java.util.*;
 public class Cols {
 
     Map<Integer, String> names;
-    public List<String> all;
+    public Map<String, String> all;
     public List<String> x;
     public List<String> y;
     String klass;
 
     public Cols (Map<Integer, String> names) {
         this.names=names;
-        all = new ArrayList<>();
+        all = new HashMap<>();
         x = new ArrayList<>();
         y = new ArrayList<>();
         klass = null;
@@ -27,7 +27,7 @@ public class Cols {
                 col="Sym";
             }
 
-            all.add(s);
+            all.put(s,col);
 
             if (!s.endsWith(":")) {
 
