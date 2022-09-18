@@ -39,7 +39,7 @@ public class Data {
     }
 
     // TODO: Add logic for stats
-    public Map<String, Double> stats() {
+    public Map<String, Double> stats(int places,List<String> showCols,String fun) {
         Map<String, Double> statistics = null;
         return statistics;
     }

@@ -97,8 +97,12 @@ public class Eg {
     }
 
     @Test
-    public void stats() throws IOException, CsvException {
+    public void statsTest() throws IOException, CsvException {
         Data d = new Data("data/testFile.csv");
+        print("xmid", o( d.stats(2,d.cols.x,"mid")));
+        print("xdiv", o( d.stats(3,d.cols.x,"div")));
+        print("ymid", o( d.stats(2,d.cols.y,"mid")));
+        print("ydiv", o( d.stats(3,d.cols.y,"div")));
         Assert.assertTrue(true);
     }
 
