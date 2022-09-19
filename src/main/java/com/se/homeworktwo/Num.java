@@ -3,7 +3,7 @@ package com.se.homeworktwo;
 import java.util.*;
 
 
-public class Num {
+public class Num extends Cell{
 
     int n;
     // Fetch value from the.nums of cli function

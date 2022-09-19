@@ -5,7 +5,7 @@ import java.util.*;
 public class Cols {
 
     Map<Integer, String> names;
-    public Map<String, String> all;
+    public Map<String, Cell> all;
     public List<String> x;
     public List<String> y;
     String klass;
@@ -21,13 +21,16 @@ public class Cols {
             String s = e.getValue();
             String col;
 
+            Cell cell;
             if(Character.isUpperCase(s.charAt(0))){
-                col="Num";
+                cell = new Num(e.getKey(), s);
+                col = "Num";
             }else{
-                col="Sym";
+                cell = new Sym(e.getKey(), s);
+                col = "Sym";
             }
 
-            all.put(s,col);
+            all.put(s,cell);
 
             if (!s.endsWith(":")) {
 

@@ -3,8 +3,7 @@ package com.se.homeworktwo;
 import java.util.*;
 import java.lang.Math;
 
-public class Sym
-{
+public class Sym extends Cell {
     int n;
     int at;
     String name;
