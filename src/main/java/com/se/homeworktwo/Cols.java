@@ -5,7 +5,7 @@ import java.util.*;
 public class Cols {
 
     Map<Integer, String> names;
-    public Map<String, Cell> all;
+    public Map<Integer, Cell> all;
     public List<String> x;
     public List<String> y;
     String klass;
@@ -30,7 +30,7 @@ public class Cols {
                 col = "Sym";
             }
 
-            all.put(s,cell);
+            all.put(e.getKey(),cell);
 
             if (!s.endsWith(":")) {
 
@@ -50,8 +50,11 @@ public class Cols {
     @Override
     public String toString() {
         return "Cols{" +
-                "x=" + x +
+                "names=" + names +
+                ", all=" + all +
+                ", x=" + x +
                 ", y=" + y +
+                ", klass='" + klass + '\'' +
                 '}';
     }
 }

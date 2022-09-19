@@ -5,6 +5,8 @@ import com.opencsv.exceptions.CsvException;
 import java.io.IOException;
 import java.util.*;
 
+import static java.lang.String.valueOf;
+
 public class Data {
     public Cols cols;
     ArrayList<Row> rows;
@@ -18,9 +20,9 @@ public class Data {
                 add(csvData.get(i));
             }
         } else if(src instanceof Map){
-//            for(Object a: ((Map) src).values()){
-//                add(a);
-//            }
+            for(Object a: ((Map) src).values()){
+                add((String[]) a);
+            }
         }
     }
 
@@ -35,12 +37,17 @@ public class Data {
             ArrayList<String> list = new ArrayList<>(Arrays.asList(a));
             Row row = new Row(list);
             rows.add(row);
+            for(int i=0; i<a.length ;i++){
+                if(a[i] == "?")
+                    continue;
+                Cell cell = cols.all.get(i);
+                if(cell instanceof Num){
+                    ((Num) cell).add(Integer.parseInt(a[i]));
+                }
+                else if(cell instanceof Sym){
+                    ((Sym) cell).add(a[i]);
+                }
+            }
         }
-    }
-
-    // TODO: Add logic for stats
-    public Map<String, Double> stats(int places,List<String> showCols,String fun) {
-        Map<String, Double> statistics = null;
-        return statistics;
     }
 }
