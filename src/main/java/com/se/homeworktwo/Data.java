@@ -50,4 +50,37 @@ public class Data {
             }
         }
     }
+
+    public Map<Integer, String> stats(int places,List<Integer> showCols, String fun) {
+        Map<Integer, String> statistics = null;
+        switch (fun){
+            case "div":
+                for(Integer a: showCols){
+                    Object ans = cols.all.get(a);
+                    if(ans instanceof Num){
+                        statistics.put(a, valueOf(rnd(((Num) ans).div(), places)));
+                    }
+                    else
+                        statistics.put(a, valueOf(((Sym) ans).div()));
+                };
+                break;
+            case "mid":
+                for(Integer a: showCols){
+                    Object ans = cols.all.get(a);
+                    if(ans instanceof Num){
+                        statistics.put(a, valueOf(rnd(((Num) ans).mid(), places)));
+                    }
+                    else
+                        statistics.put(a, valueOf(((Sym) ans).mid()));
+                };
+                break;
+        }
+
+        return statistics;
+    }
+
+    private double rnd(double x, Integer places) {
+        double mult = Math.pow(10, places);
+        return Math.floor(x * mult + 0.5) / mult;
+    }
 }
