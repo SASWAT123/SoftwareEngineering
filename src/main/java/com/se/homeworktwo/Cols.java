@@ -6,8 +6,8 @@ public class Cols {
 
     Map<Integer, String> names;
     public Map<Integer, Cell> all;
-    public List<String> x;
-    public List<String> y;
+    public List<Integer> x;
+    public List<Integer> y;
     String klass;
 
     public Cols (Map<Integer, String> names) {
@@ -19,25 +19,26 @@ public class Cols {
 
         for (Map.Entry<Integer, String> e: this.names.entrySet()) {
             String s = e.getValue();
+            int col_num=e.getKey();
             String col;
 
             Cell cell;
             if(Character.isUpperCase(s.charAt(0))){
-                cell = new Num(e.getKey(), s);
+                cell = new Num(col_num, s);
                 col = "Num";
             }else{
-                cell = new Sym(e.getKey(), s);
+                cell = new Sym(col_num, s);
                 col = "Sym";
             }
 
-            all.put(e.getKey(),cell);
+            all.put(col_num,cell);
 
             if (!s.endsWith(":")) {
 
                 if (s.endsWith("+") || s.endsWith("-")){
-                    y.add(s);
+                    y.add(col_num);
                 }else{
-                    x.add(s);
+                    x.add(col_num);
                 }
 
                 if(s.endsWith("!")){
