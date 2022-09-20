@@ -51,11 +51,11 @@ public class Data {
         }
     }
 
-    public Map<Integer, String> stats(int places,List<Integer> showCols, String fun) {
-        Map<Integer, String> statistics = null;
+    public Map<String, String> stats(int places,List<String> showCols, String fun) {
+        Map<String, String> statistics = null;
         switch (fun){
             case "div":
-                for(Integer a: showCols){
+                for(String a: showCols){
                     Object ans = cols.all.get(a);
                     if(ans instanceof Num){
                         statistics.put(a, valueOf(rnd(((Num) ans).div(), places)));
@@ -65,7 +65,7 @@ public class Data {
                 };
                 break;
             case "mid":
-                for(Integer a: showCols){
+                for(String a: showCols){
                     Object ans = cols.all.get(a);
                     if(ans instanceof Num){
                         statistics.put(a, valueOf(rnd(((Num) ans).mid(), places)));

@@ -1,5 +1,6 @@
 package com.se.homeworktwo;
 
+
 public class Util {
 
     public static String oo(String t){
@@ -13,4 +14,5 @@ public class Util {
         }
         return t;
     }
+    
 }
