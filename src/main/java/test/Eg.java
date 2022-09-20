@@ -99,11 +99,9 @@ public class Eg {
     @Test
     public void stats() throws IOException, CsvException {
         Data d = new Data("data/testFile.csv");
-        Map<String, String> result=d.stats(2,d.cols.x,"mid");
-        System.out.println("xmid", result );
-        print("xdiv", d.stats(3,d.cols.x,"div")));
-        print("ymid",  d.stats(2,d.cols.y,"mid")));
-        print("ydiv",  d.stats(3,d.cols.y,"div")));
+        System.out.println("xdiv"+ Util.o(d.stats(3,d.cols.x,"div")));
+        System.out.println("ymid"+ Util.o(d.stats(2,d.cols.y,"mid")));
+        System.out.println("ydiv"+  Util.o(d.stats(3,d.cols.y,"div")));
         Assert.assertTrue(true);
     }
 
