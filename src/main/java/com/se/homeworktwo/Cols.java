@@ -5,9 +5,9 @@ import java.util.*;
 public class Cols {
 
     Map<Integer, String> names;
-    public Map<Integer, Cell> all;
-    public List<Integer> x;
-    public List<Integer> y;
+    public Map<String, Cell> all;
+    public List<String> x;
+    public List<String> y;
     String klass;
 
     public Cols (Map<Integer, String> names) {
@@ -31,14 +31,14 @@ public class Cols {
                 col = "Sym";
             }
 
-            all.put(col_num,cell);
+            all.put(s,cell);
 
             if (!s.endsWith(":")) {
 
                 if (s.endsWith("+") || s.endsWith("-")){
-                    y.add(col_num);
+                    y.add(s);
                 }else{
-                    x.add(col_num);
+                    x.add(s);
                 }
 
                 if(s.endsWith("!")){
