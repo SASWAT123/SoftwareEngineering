@@ -10,7 +10,7 @@ public class Num extends Cell{
     int the_nums = 32;
     int at;
     String name;
-    public ArrayList<Integer> _has;
+    public ArrayList<Double> _has;
     double lo;
     double hi;
     boolean isSorted;
@@ -31,7 +31,7 @@ public class Num extends Cell{
         this.w = name.contains("-$") ? -1 : 1;
     }
 
-    public ArrayList<Integer> nums() {
+    public ArrayList<Double> nums() {
         if (!isSorted) {
             Collections.sort(_has);
             isSorted = true;
@@ -39,7 +39,7 @@ public class Num extends Cell{
         return _has;
     }
 
-    public void add(Integer v) {
+    public void add(Double v) {
         int pos = 0;
         if(v != null){
             this.n = this.n + 1;
@@ -59,23 +59,23 @@ public class Num extends Cell{
     }
 
     public double div() {
-        ArrayList<Integer> a = nums();
+        ArrayList<Double> a = nums();
         return (per(a, 0.9) - per(a,0.1))/ 2.56;
     }
 
     public double mid() {
-        ArrayList<Integer> a = nums();
+        ArrayList<Double> a = nums();
         return per(a,0.5);
     }
 
-    public double per(ArrayList<Integer> t, double p) {
+    public double per(ArrayList<Double> t, double p) {
         int pos;
         if (p!=0)
         pos = (int) Math.floor((p * t.size()) + 0.5);
         else
         pos = (int) Math.floor((0.5 * t.size()) + 0.5);
 
-        return t.get(Math.max(1, Math.min(t.size(), pos))); 
+        return t.get(Math.max(1, Math.min(t.size(), pos)));
     }
 
     
