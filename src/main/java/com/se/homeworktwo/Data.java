@@ -5,6 +5,8 @@ import com.opencsv.exceptions.CsvException;
 import java.io.IOException;
 import java.util.*;
 
+import static java.lang.String.valueOf;
+
 public class Data {
     public Cols cols;
     ArrayList<Row> rows;
@@ -18,9 +20,9 @@ public class Data {
                 add(csvData.get(i));
             }
         } else if(src instanceof Map){
-//            for(Object a: ((Map) src).values()){
-//                add(a);
-//            }
+            for(Object a: ((Map) src).values()){
+                add((String[]) a);
+            }
         }
     }
 
@@ -35,12 +37,50 @@ public class Data {
             ArrayList<String> list = new ArrayList<>(Arrays.asList(a));
             Row row = new Row(list);
             rows.add(row);
+            for(int i=0; i<a.length ;i++){
+                if(a[i].equals("?"))
+                    continue;
+                Cell cell = cols.all.get(cols.names.get(i));
+                if(cell instanceof Num){
+                    ((Num) cell).add(Double.parseDouble(a[i]));
+                }
+                else if(cell instanceof Sym){
+                    ((Sym) cell).add(a[i]);
+                }
+            }
         }
     }
 
-    // TODO: Add logic for stats
-    public Map<String, Double> stats() {
-        Map<String, Double> statistics = null;
+    public Map<String, String> stats(int places,List<String> showCols, String fun) {
+        Map<String, String> statistics = new HashMap<>();
+        switch (fun){
+            case "div":
+                for(String a: showCols){
+                    Object ans = cols.all.get(a);
+                    if(ans instanceof Num){
+                        statistics.put(a, valueOf(rnd(((Num) ans).div(), places)));
+                    }
+                    else
+                        statistics.put(a, valueOf(((Sym) ans).div()));
+                };
+                break;
+            case "mid":
+                for(String a: showCols){
+                    Object ans = cols.all.get(a);
+                    if(ans instanceof Num){
+                        statistics.put(a, valueOf(rnd(((Num) ans).mid(), places)));
+                    }
+                    else
+                        statistics.put(a, valueOf(((Sym) ans).mid()));
+                };
+                break;
+        }
+
         return statistics;
+    }
+
+    private double rnd(double x, Integer places) {
+        double mult = Math.pow(10, places);
+        return Math.floor(x * mult + 0.5) / mult;
     }
 }

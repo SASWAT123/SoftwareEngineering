@@ -5,29 +5,33 @@ import java.util.*;
 public class Cols {
 
     Map<Integer, String> names;
-    public List<String> all;
+    public Map<String, Cell> all;
     public List<String> x;
     public List<String> y;
     String klass;
 
     public Cols (Map<Integer, String> names) {
         this.names=names;
-        all = new ArrayList<>();
+        all = new HashMap<>();
         x = new ArrayList<>();
         y = new ArrayList<>();
         klass = null;
 
         for (Map.Entry<Integer, String> e: this.names.entrySet()) {
             String s = e.getValue();
+            int col_num=e.getKey();
             String col;
 
+            Cell cell;
             if(Character.isUpperCase(s.charAt(0))){
-                col="Num";
+                cell = new Num(col_num, s);
+                col = "Num";
             }else{
-                col="Sym";
+                cell = new Sym(col_num, s);
+                col = "Sym";
             }
 
-            all.add(s);
+            all.put(s,cell);
 
             if (!s.endsWith(":")) {
 
@@ -47,8 +51,11 @@ public class Cols {
     @Override
     public String toString() {
         return "Cols{" +
-                "x=" + x +
+                "names=" + names +
+                ", all=" + all +
+                ", x=" + x +
                 ", y=" + y +
+                ", klass='" + klass + '\'' +
                 '}';
     }
 }

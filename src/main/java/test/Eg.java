@@ -42,7 +42,7 @@ public class Eg {
         for(int i =1; i<= 100; i++)
         {
             //Check logic for pos 
-            num.add(i);
+            num.add(i*1.0);
         }
         double mid = num.mid();
         double div = num.div();
@@ -57,7 +57,7 @@ public class Eg {
         for(int i =1; i<= 1000; i++)
         {
             //Check logic for pos
-            num.add(i);
+            num.add(i*1.0);
         }
 
         assertEquals(num.nums().size(), num._has.size());
@@ -95,4 +95,17 @@ public class Eg {
         }
         Assert.assertTrue(true);
     }
+
+    @Test
+    public void stats() throws IOException, CsvException {
+        Data d = new Data("data/testFile.csv");
+        System.out.println("xmid"+ Util.o(d.stats(2,d.cols.x,"mid")));
+        System.out.println("xdiv"+ Util.o(d.stats(3,d.cols.x,"div")));
+        System.out.println("ymid"+ Util.o(d.stats(2,d.cols.y,"mid")));
+        System.out.println("ydiv"+  Util.o(d.stats(3,d.cols.y,"div")));
+        Assert.assertTrue(true);
+    }
+
+        
 }
+
