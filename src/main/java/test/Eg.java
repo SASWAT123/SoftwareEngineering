@@ -99,6 +99,7 @@ public class Eg {
     @Test
     public void stats() throws IOException, CsvException {
         Data d = new Data("data/testFile.csv");
+        System.out.println("xmid"+ Util.o(d.stats(2,d.cols.x,"mid")));
         System.out.println("xdiv"+ Util.o(d.stats(3,d.cols.x,"div")));
         System.out.println("ymid"+ Util.o(d.stats(2,d.cols.y,"mid")));
         System.out.println("ydiv"+  Util.o(d.stats(3,d.cols.y,"div")));
