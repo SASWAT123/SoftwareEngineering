@@ -38,11 +38,11 @@ public class Data {
             Row row = new Row(list);
             rows.add(row);
             for(int i=0; i<a.length ;i++){
-                if(a[i] == "?")
+                if(a[i].equals("?"))
                     continue;
-                Cell cell = cols.all.get(i);
+                Cell cell = cols.all.get(cols.names.get(i));
                 if(cell instanceof Num){
-                    ((Num) cell).add(Integer.parseInt(a[i]));
+                    ((Num) cell).add(Double.parseDouble(a[i]));
                 }
                 else if(cell instanceof Sym){
                     ((Sym) cell).add(a[i]);
@@ -52,7 +52,7 @@ public class Data {
     }
 
     public Map<String, String> stats(int places,List<String> showCols, String fun) {
-        Map<String, String> statistics = null;
+        Map<String, String> statistics = new HashMap<>();
         switch (fun){
             case "div":
                 for(String a: showCols){
