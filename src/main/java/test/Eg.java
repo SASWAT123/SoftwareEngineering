@@ -42,7 +42,7 @@ public class Eg {
         for(int i =1; i<= 100; i++)
         {
             //Check logic for pos 
-            num.add(i);
+            num.add(i*1.0);
         }
         double mid = num.mid();
         double div = num.div();
@@ -57,7 +57,7 @@ public class Eg {
         for(int i =1; i<= 1000; i++)
         {
             //Check logic for pos
-            num.add(i);
+            num.add(i*1.0);
         }
 
         assertEquals(num.nums().size(), num._has.size());
