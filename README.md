@@ -12,3 +12,4 @@ To run the testcases, go to the test folder located inside src/main/java/ and ru
 
 [![SonarQube Analysis](https://github.com/SASWAT123/SoftwareEngineering/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/SASWAT123/SoftwareEngineering/actions/workflows/sonarcloud.yml)
 
+[![Code Linting Analysis Report](https://github.com/SASWAT123/SoftwareEngineering/actions/workflows/linter.yml/badge.svg)](https://github.com/SASWAT123/SoftwareEngineering/actions/workflows/linter.yml)
