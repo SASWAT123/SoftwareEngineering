@@ -1,10 +1,22 @@
 # Software Engineering
-This repository contains solution for homework 2.   
+The goal of this project is to take a working system (written in LUA) and write it in any other language. The programming language we chose is JAVA.
+
+This repository contains solution for the tasks of HW2, HW3, HW4, HW5 as listed below:
+
+|Homework| Task|
+|:------:|:------|
+|HW2     | Get this going for the `Num` and `Sym` class (below) and the tests cases `the`, `sym`, `num`, `bignum`.|
+|HW3     | Get this going for the `Cols`, `Row`, `Data` class and the test cases `eg.csv, eg.data, eg.stats`.|
+|HW4     | Add all the bling from [HW1](https://github.com/txt/se22/blob/main/docs/hw1.md). Also, add post-commit hooks to auto run all the test cases, the code coverage checks (if your language supports then), and the documentation generators.|
+|HW5     | For five other groups from cs510, apply the Project1 [rubric](https://github.com/txt/se22/blob/main/docs/proj1.md#rubric).|
+
 
 To view the src code, go to the src/main/java/  
-Here you can access different classes for Num & Sym in the package com.se.homeworktwo  
+Here you can access different classes for Num, Sym, Cols, Row, Data in the package com.se.homeworktwo
 
-To run the testcases, go to the test folder located inside src/main/java/ and run the Eg.java file.
+To run the testcases, go to the test package located inside src/main/java/ and run the Eg.java file.
+
+
 
 [![DOI](https://zenodo.org/badge/533075547.svg)](https://zenodo.org/badge/latestdoi/533075547)
 
