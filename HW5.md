@@ -124,8 +124,8 @@
 | | Test cases: a large proportion of the issues related to handling failing cases | | | |
 | | Evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people) | | | |	
 | | Evidence that the whole team is using the same tools (e.g. tutor can ask anyone to share screen, they demonstrate the system running on their computer) | | | |
-| | Evidence that the members of the team are working across multiple places in the code base | | | |
-| | Short release cycles | | | |
+| | Evidence that the members of the team are working across multiple places in the code base | 3 | | |
+| | Short release cycles | 2 | | |
 | https://github.com/mithildani/se22-hw1-grp14 | | | |
 | | Video1 | | | |
 | | Video2 | | | |
