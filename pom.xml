@@ -44,5 +44,10 @@
             <version>5.7.0</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test</testSourceDirectory>
+    </build>
     
 </project>
