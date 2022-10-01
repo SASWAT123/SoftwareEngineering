@@ -1,0 +1,197 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > App</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.se.homeworktwo</a>
+</div>
+
+<h1>Coverage Summary for Class: App (com.se.homeworktwo)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">App</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    33.3%
+  </span>
+  <span class="absValue">
+    (1/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    8%
+  </span>
+  <span class="absValue">
+    (4/50)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.se.homeworktwo;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.opencsv.CSVReader;
+<i class="no-highlight">4</i>&nbsp;import com.opencsv.exceptions.CsvException;
+<i class="no-highlight">5</i>&nbsp;
+<i class="no-highlight">6</i>&nbsp;import java.io.FileNotFoundException;
+<i class="no-highlight">7</i>&nbsp;import java.io.FileReader;
+<i class="no-highlight">8</i>&nbsp;import java.io.IOException;
+<i class="no-highlight">9</i>&nbsp;import java.util.*;
+<i class="no-highlight">10</i>&nbsp;
+<b class="nc"><i class="no-highlight">11</i>&nbsp;public class App {</b>
+<i class="no-highlight">12</i>&nbsp;    public static void main(String[] args) throws FileNotFoundException {
+<b class="nc"><i class="no-highlight">13</i>&nbsp;        System.out.println(&quot;Welcome to Homework 2&quot;);</b>
+<b class="nc"><i class="no-highlight">14</i>&nbsp;        Scanner scanner = new Scanner(System.in);</b>
+<i class="no-highlight">15</i>&nbsp;
+<i class="no-highlight">16</i>&nbsp;        //runMenu keeps triggering the menu till the user enters n
+<b class="nc"><i class="no-highlight">17</i>&nbsp;        String runMenu = &quot;y&quot;;</b>
+<i class="no-highlight">18</i>&nbsp;
+<i class="no-highlight">19</i>&nbsp;        //populate the help for users
+<b class="nc"><i class="no-highlight">20</i>&nbsp;        Help help = new Help(&quot;help&quot;, &quot;Display all the help commands available, enter the name of specific command if you want to check that.&quot;);</b>
+<b class="nc"><i class="no-highlight">21</i>&nbsp;        Help csvData = new Help(&quot;csvData&quot;, &quot;This command helps the user to enter the path of csv file they want to parse.&quot;);</b>
+<b class="nc"><i class="no-highlight">22</i>&nbsp;        Help editHelp = new Help(&quot;editHelp&quot;, &quot;This command helps the user to edit the help menu.&quot;);</b>
+<i class="no-highlight">23</i>&nbsp;
+<i class="no-highlight">24</i>&nbsp;        //array of help commands
+<b class="nc"><i class="no-highlight">25</i>&nbsp;        List&lt;Help&gt; helpCommands = new ArrayList&lt;&gt;();</b>
+<b class="nc"><i class="no-highlight">26</i>&nbsp;        helpCommands.add(csvData);</b>
+<b class="nc"><i class="no-highlight">27</i>&nbsp;        helpCommands.add(editHelp);</b>
+<i class="no-highlight">28</i>&nbsp;
+<i class="no-highlight">29</i>&nbsp;        //Until the user enters N or n we keep the console active for the user to enter information
+<b class="nc"><i class="no-highlight">30</i>&nbsp;        while(!runMenu.equalsIgnoreCase(&quot;n&quot;)){</b>
+<b class="nc"><i class="no-highlight">31</i>&nbsp;            System.out.println(&quot;Enter your choice, press &#39;n&#39; to terminate the application.&quot;);</b>
+<b class="nc"><i class="no-highlight">32</i>&nbsp;            runMenu = scanner.nextLine();</b>
+<i class="no-highlight">33</i>&nbsp;
+<i class="no-highlight">34</i>&nbsp;            //Check the condition entered by the user and trigger respective functions
+<b class="nc"><i class="no-highlight">35</i>&nbsp;            if(runMenu.equalsIgnoreCase(&quot;n&quot;)){</b>
+<i class="no-highlight">36</i>&nbsp;                return;
+<b class="nc"><i class="no-highlight">37</i>&nbsp;            }else if(runMenu.equalsIgnoreCase(help.getCommandName())){</b>
+<b class="nc"><i class="no-highlight">38</i>&nbsp;                System.out.println(help);</b>
+<b class="nc"><i class="no-highlight">39</i>&nbsp;                for (Help command: helpCommands) {</b>
+<b class="nc"><i class="no-highlight">40</i>&nbsp;                    System.out.println(command.toString());</b>
+<b class="nc"><i class="no-highlight">41</i>&nbsp;                }</b>
+<b class="nc"><i class="no-highlight">42</i>&nbsp;            }else if(runMenu.equalsIgnoreCase(String.format(&quot;help %s&quot;, csvData.getCommandName()))){</b>
+<b class="nc"><i class="no-highlight">43</i>&nbsp;                System.out.println(csvData);</b>
+<b class="nc"><i class="no-highlight">44</i>&nbsp;            }else if(runMenu.equalsIgnoreCase(String.format(&quot;help %s&quot;, editHelp.getCommandName()))){</b>
+<b class="nc"><i class="no-highlight">45</i>&nbsp;                System.out.println(editHelp);</b>
+<b class="nc"><i class="no-highlight">46</i>&nbsp;            }else if(runMenu.equalsIgnoreCase(String.format(&quot;help %s %s&quot;, editHelp.getCommandName(), csvData.getCommandName()))</b>
+<b class="nc"><i class="no-highlight">47</i>&nbsp;                    || runMenu.equalsIgnoreCase(String.format(&quot;help %s %s&quot;, editHelp.getCommandName(), editHelp.getCommandName()))){</b>
+<i class="no-highlight">48</i>&nbsp;                //check helpCommand update functionality
+<b class="nc"><i class="no-highlight">49</i>&nbsp;                List&lt;String&gt; updateHelpFlag = Arrays.asList(runMenu.split(&quot; &quot;));</b>
+<i class="no-highlight">50</i>&nbsp;
+<b class="nc"><i class="no-highlight">51</i>&nbsp;                System.out.println(&quot;Kindly enter the new help flag name:&quot;);</b>
+<b class="nc"><i class="no-highlight">52</i>&nbsp;                String commandName = scanner.nextLine();</b>
+<b class="nc"><i class="no-highlight">53</i>&nbsp;                if(updateHelpFlag.get(1).equalsIgnoreCase(csvData.getCommandName())){</b>
+<b class="nc"><i class="no-highlight">54</i>&nbsp;                    csvData.setCommandName(commandName);</b>
+<i class="no-highlight">55</i>&nbsp;                }else{
+<b class="nc"><i class="no-highlight">56</i>&nbsp;                    editHelp.setCommandName(commandName);</b>
+<i class="no-highlight">57</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">58</i>&nbsp;                updateHelpFlag.set(1, commandName);</b>
+<i class="no-highlight">59</i>&nbsp;
+<b class="nc"><i class="no-highlight">60</i>&nbsp;                System.out.println(&quot;Kindly enter the new help flag description:&quot;);</b>
+<b class="nc"><i class="no-highlight">61</i>&nbsp;                String commandDescription = scanner.nextLine();</b>
+<b class="nc"><i class="no-highlight">62</i>&nbsp;                if(updateHelpFlag.get(1).equalsIgnoreCase(csvData.getCommandName())){</b>
+<b class="nc"><i class="no-highlight">63</i>&nbsp;                    csvData.setCommandDescription(commandDescription);</b>
+<i class="no-highlight">64</i>&nbsp;                }else{
+<b class="nc"><i class="no-highlight">65</i>&nbsp;                    editHelp.setCommandDescription(commandDescription);</b>
+<i class="no-highlight">66</i>&nbsp;                }
+<i class="no-highlight">67</i>&nbsp;            // TODO - edit this to parse the path for csv from commandline so the user can add any csv file from system
+<b class="nc"><i class="no-highlight">68</i>&nbsp;            }else if(runMenu.equalsIgnoreCase(csvData.getCommandName() + &quot; &quot; + &quot;data/testFile.csv&quot;)){</b>
+<i class="no-highlight">69</i>&nbsp;                try {
+<b class="nc"><i class="no-highlight">70</i>&nbsp;                    csv(&quot;data/testFile.csv&quot;);</b>
+<b class="nc"><i class="no-highlight">71</i>&nbsp;                } catch (IOException e) {</b>
+<b class="nc"><i class="no-highlight">72</i>&nbsp;                    throw new RuntimeException(e);</b>
+<b class="nc"><i class="no-highlight">73</i>&nbsp;                } catch (CsvException e) {</b>
+<b class="nc"><i class="no-highlight">74</i>&nbsp;                    throw new RuntimeException(e);</b>
+<b class="nc"><i class="no-highlight">75</i>&nbsp;                }</b>
+<i class="no-highlight">76</i>&nbsp;            }else{     //print any other invalid choice
+<b class="nc"><i class="no-highlight">77</i>&nbsp;                System.out.println(&quot;Invalid choice, kindly use the help menu&quot;);</b>
+<i class="no-highlight">78</i>&nbsp;            }
+<i class="no-highlight">79</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">80</i>&nbsp;        scanner.close();</b>
+<i class="no-highlight">81</i>&nbsp;
+<i class="no-highlight">82</i>&nbsp;    }
+<i class="no-highlight">83</i>&nbsp;
+<i class="no-highlight">84</i>&nbsp;     public static List&lt;String[]&gt; csv(String filePath) throws IOException, CsvException {
+<i class="no-highlight">85</i>&nbsp;         List&lt;String[]&gt; r;
+<b class="fc"><i class="no-highlight">86</i>&nbsp;        try (CSVReader reader = new CSVReader(new FileReader(filePath))) {</b>
+<b class="fc"><i class="no-highlight">87</i>&nbsp;            r = reader.readAll();</b>
+<b class="fc"><i class="no-highlight">88</i>&nbsp;        }</b>
+<b class="fc"><i class="no-highlight">89</i>&nbsp;        return r;</b>
+<i class="no-highlight">90</i>&nbsp;    }
+<i class="no-highlight">91</i>&nbsp;}
+<i class="no-highlight">92</i>&nbsp;
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-10-01 16:03</div>
+</div>
+</body>
+</html>
