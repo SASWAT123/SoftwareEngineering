@@ -4,6 +4,8 @@
 [![SonarQube Analysis](https://github.com/SASWAT123/SoftwareEngineering/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/SASWAT123/SoftwareEngineering/actions/workflows/sonarcloud.yml)
 [![Code Linting Analysis Report](https://github.com/SASWAT123/SoftwareEngineering/actions/workflows/linter.yml/badge.svg)](https://github.com/SASWAT123/SoftwareEngineering/actions/workflows/linter.yml)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+[![codecov.io Code Method Coverage](https://img.shields.io/badge/Test%20Coverage%20%7C%20Method-85.7-green)](https://htmlpreview.github.io/?https://github.com/SASWAT123/SoftwareEngineering/blob/master/testcoverage/index.html)
+[![codecov.io Code Line Coverage](https://img.shields.io/badge/Test%20Coverage%20%7C%20Line-72.2-green)](https://htmlpreview.github.io/?https://github.com/SASWAT123/SoftwareEngineering/blob/master/testcoverage/index.html)
 
 The goal of this project is to take a working system (written in LUA) and write it in any other language. The programming language we chose is JAVA.
 
